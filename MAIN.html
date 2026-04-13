@@ -1,1 +1,39 @@
-<!-- HTML content of halloween-tracker.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Night Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; padding: 20px; background: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h1 { color: #ff5722; }
+        .tracker { display: flex; flex-direction: column; margin-top: 20px; }
+        .tracker input, .tracker button { padding: 10px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Halloween Night Tracker</h1>
+        <div class="tracker">
+            <input type="text" id="event" placeholder="Enter event" />
+            <input type="text" id="location" placeholder="Enter location" />
+            <button id="add-event">Add Event</button>
+            <ul id="event-list"></ul>
+        </div>
+    </div>
+    <script>
+        document.getElementById('add-event').addEventListener('click', function() {
+            let eventInput = document.getElementById('event');
+            let locationInput = document.getElementById('location');
+            if (eventInput.value && locationInput.value) {
+                let li = document.createElement('li');
+                li.textContent = `Event: ${eventInput.value}, Location: ${locationInput.value}`;
+                document.getElementById('event-list').appendChild(li);
+                eventInput.value = '';
+                locationInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
